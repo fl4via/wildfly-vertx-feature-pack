@@ -23,9 +23,10 @@ import static org.wildfly.extension.vertx.VertxSubsystemExtension.SUBSYSTEM_PATH
  */
 enum VertxSubsystemSchema implements PersistentSubsystemSchema<VertxSubsystemSchema> {
     VERSION_1_0_PREVIEW(1, 0,Stability.PREVIEW),
+    VERSION_2_0_PREVIEW(2, 0,Stability.PREVIEW),
             ;
 
-    static final VertxSubsystemSchema CURRENT = VERSION_1_0_PREVIEW;
+    static final VertxSubsystemSchema CURRENT = VERSION_2_0_PREVIEW;
 
     private final VersionedNamespace<IntVersion, VertxSubsystemSchema> namespace;
 

@@ -3,11 +3,11 @@
   ~ SPDX-License-Identifier: Apache-2.0
   -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-           targetNamespace="urn:wildfly:vertx:preview:1.0"
-           xmlns="urn:wildfly:vertx:preview:1.0"
+           targetNamespace="urn:wildfly:vertx:preview:2.0"
+           xmlns="urn:wildfly:vertx:preview:2.0"
             elementFormDefault="qualified"
             attributeFormDefault="unqualified"
-            version="1.0">
+            version="2.0">
 
     <xs:element name="subsystem" type="subsystemType"/>
 

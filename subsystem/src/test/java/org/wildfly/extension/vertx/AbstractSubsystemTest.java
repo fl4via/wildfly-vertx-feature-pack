@@ -17,27 +17,24 @@ import java.io.IOException;
 import static org.wildfly.extension.vertx.VertxSubsystemExtension.SUBSYSTEM_NAME;
 
 /**
- * Standard subsystem test.
+ * Base class for subsystem tests across different schema versions.
  *
  * @author <a href="aoingl@gmail.com">Lin Gao</a>
+ * @author Flavia Rainone
  */
-public class SubsystemTestCase extends AbstractSubsystemBaseTest {
+abstract class AbstractSubsystemTest extends AbstractSubsystemBaseTest {
 
-    public SubsystemTestCase() {
+    protected AbstractSubsystemTest() {
         super(SUBSYSTEM_NAME, new VertxSubsystemExtension(), Stability.PREVIEW);
     }
 
     @Override
-    protected String getSubsystemXml() throws IOException {
-        // test configuration put in standalone.xml
-        return readResource("vertx-options-full.xml");
-    }
+    protected abstract String getSubsystemXml() throws IOException;
 
     @Override
-    protected String getSubsystemXsdPath() {
-        return "schema/wildfly-vertx_1_0_0.xsd";
-    }
+    protected abstract String getSubsystemXsdPath();
 
+    @Override
     protected AdditionalInitialization createAdditionalInitialization() {
         return new AdditionalInitialization.ManagementAdditionalInitialization(Stability.PREVIEW) {
 

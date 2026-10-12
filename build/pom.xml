@@ -9,11 +9,11 @@
     <parent>
         <groupId>org.wildfly.extras.vertx</groupId>
         <artifactId>wildfly-vertx-extension-pom</artifactId>
-        <version>1.0.3.Final-SNAPSHOT</version>
+        <version>2.0.0.Final-SNAPSHOT</version>
     </parent>
 
     <artifactId>wildfly-vertx-build</artifactId>
-    <version>1.0.3.Final-SNAPSHOT</version>
+    <version>2.0.0.Final-SNAPSHOT</version>
 
     <name>WildFly Vertx Extension - Distributions :: Server Distribution</name>
     <description>This is the server distribution with this extension, the integration tests in this project depends on this server.</description>
@@ -35,6 +35,16 @@
             <groupId>${project.groupId}</groupId>
             <artifactId>wildfly-vertx-feature-pack</artifactId>
             <type>zip</type>
+        </dependency>
+        <dependency>
+            <groupId>io.vertx</groupId>
+            <artifactId>vertx-core</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.vertx</groupId>
+            <artifactId>vertx-core-logging</artifactId>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 
@@ -89,12 +99,6 @@
                             </galleon-options>
                             <feature-packs>
                                 <feature-pack>
-                                    <groupId>${project.groupId}</groupId>
-                                    <artifactId>wildfly-vertx-feature-pack</artifactId>
-                                    <version>${project.version}</version>
-                                    <inherit-configs>false</inherit-configs>
-                                </feature-pack>
-                                <feature-pack>
                                     <transitive>true</transitive>
                                     <groupId>org.wildfly</groupId>
                                     <artifactId>wildfly-ee-galleon-pack</artifactId>
@@ -106,6 +110,12 @@
                                     <artifactId>wildfly-galleon-pack</artifactId>
                                     <version>${version.org.wildfly}</version>
                                     <inherit-configs>true</inherit-configs>
+                                </feature-pack>
+                                <feature-pack>
+                                    <groupId>${project.groupId}</groupId>
+                                    <artifactId>wildfly-vertx-feature-pack</artifactId>
+                                    <version>${project.version}</version>
+                                    <inherit-configs>false</inherit-configs>
                                 </feature-pack>
                             </feature-packs>
                             <channels>

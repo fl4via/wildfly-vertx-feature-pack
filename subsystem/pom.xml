@@ -9,11 +9,11 @@
     <parent>
         <groupId>org.wildfly.extras.vertx</groupId>
         <artifactId>wildfly-vertx-extension-pom</artifactId>
-        <version>1.0.3.Final-SNAPSHOT</version>
+        <version>2.0.0.Final-SNAPSHOT</version>
     </parent>
 
     <artifactId>wildfly-vertx-extension</artifactId>
-    <version>1.0.3.Final-SNAPSHOT</version>
+    <version>2.0.0.Final-SNAPSHOT</version>
 
     <name>WildFly Vertx Extension - Subsystem</name>
 
@@ -76,6 +76,12 @@
         <dependency>
             <groupId>io.vertx</groupId>
             <artifactId>vertx-core</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.vertx</groupId>
+            <artifactId>vertx-core-logging</artifactId>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>io.smallrye.common</groupId>

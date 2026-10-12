@@ -6,8 +6,6 @@ package org.wildfly.extension.vertx;
 
 import io.vertx.core.Vertx;
 import io.vertx.core.VertxOptions;
-import io.vertx.core.impl.VertxBuilder;
-import io.vertx.core.spi.resolver.ResolverProvider;
 import org.jboss.as.controller.CapabilityServiceBuilder;
 import org.jboss.as.controller.OperationContext;
 import org.jboss.msc.Service;
@@ -32,9 +30,11 @@ import static org.wildfly.extension.vertx.VertxResourceDefinition.VERTX_RUNTIME_
  */
 public class VertxProxyService implements Service, VertxConstants {
 
+    private static final String DISABLE_DNS_RESOLVER_PROP_NAME = "vertx.disableDnsResolver";
+
     static {
-        if (WildFlySecurityManager.getPropertyPrivileged(ResolverProvider.DISABLE_DNS_RESOLVER_PROP_NAME, null) == null) {
-            WildFlySecurityManager.setPropertyPrivileged(ResolverProvider.DISABLE_DNS_RESOLVER_PROP_NAME, "true");
+        if (WildFlySecurityManager.getPropertyPrivileged(DISABLE_DNS_RESOLVER_PROP_NAME, null) == null) {
+            WildFlySecurityManager.setPropertyPrivileged(DISABLE_DNS_RESOLVER_PROP_NAME, "true");
         }
     }
     private VertxProxy vertxProxy;
@@ -79,7 +79,7 @@ public class VertxProxyService implements Service, VertxConstants {
         if (vertxOptions == null) {
             vertxOptions = new VertxOptions();
         }
-        return new VertxBuilder(vertxOptions).init().vertx();
+        return Vertx.builder().with(vertxOptions).build();
     }
 
     @Override

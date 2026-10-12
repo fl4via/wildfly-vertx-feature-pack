@@ -9,11 +9,11 @@
     <parent>
         <groupId>org.wildfly.extras.vertx</groupId>
         <artifactId>wildfly-vertx-feature-pack-parent</artifactId>
-        <version>1.0.3.Final-SNAPSHOT</version>
+        <version>2.0.0.Final-SNAPSHOT</version>
     </parent>
 
     <artifactId>wildfly-vertx-feature-pack-content</artifactId>
-    <version>1.0.3.Final-SNAPSHOT</version>
+    <version>2.0.0.Final-SNAPSHOT</version>
 
     <name>WildFly Vertx Extension - Distributions :: Galleon Feature Pack Content</name>
     <description>The contents for the feature pack of the Vertx extension.</description>
@@ -24,6 +24,16 @@
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>wildfly-vertx-extension</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>io.vertx</groupId>
+            <artifactId>vertx-core</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>io.vertx</groupId>
+            <artifactId>vertx-core-logging</artifactId>
         </dependency>
 
         <dependency>

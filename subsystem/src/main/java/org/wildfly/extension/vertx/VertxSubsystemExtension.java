@@ -7,7 +7,6 @@ package org.wildfly.extension.vertx;
 
 import io.netty.util.internal.logging.InternalLoggerFactory;
 import io.netty.util.internal.logging.JdkLoggerFactory;
-import io.vertx.core.logging.LoggerFactory;
 import org.jboss.as.controller.ModelVersion;
 import org.jboss.as.controller.PathElement;
 import org.jboss.as.controller.SubsystemModel;
@@ -45,9 +44,6 @@ public class VertxSubsystemExtension extends SubsystemExtension<VertxSubsystemSc
                 SubsystemPersistence.of(VertxSubsystemSchema.CURRENT));
         // Initialize the Netty logger factory
         InternalLoggerFactory.setDefaultFactory(JdkLoggerFactory.INSTANCE);
-        // Initialize the Vert.x logger factory
-        //noinspection deprecation
-        LoggerFactory.initialise();
     }
 
     @Override
